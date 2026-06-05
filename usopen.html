@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>2026 U.S. Open Robotics Tournament — CREATE Foundation</title>
+<title>U.S. Open Robotics Tournament — CREATE Foundation</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -78,6 +78,8 @@ section{position:relative;width:100%;overflow:hidden;}
 .doc-icon{width:48px;height:48px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;}
 .doc-icon.pdf{background:rgba(220,50,50,.12);}
 .doc-icon.form{background:rgba(66,133,244,.12);}
+.doc-icon.doc{background:rgba(66,133,244,.12);}
+.doc-icon.sheet{background:rgba(52,168,83,.12);}
 .doc-icon.link{background:rgba(255,255,255,.07);}
 .doc-info{flex:1;min-width:0;}
 .doc-info h4{font-size:15px;font-weight:500;margin-bottom:4px;}
@@ -149,7 +151,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
     <li><a href="#venue">Venue</a></li>
     <li><a href="#volunteers">Volunteer</a></li>
     <li><a href="index.html#sponsors">Sponsors</a></li>
-    <li><a href="https://create-found.org/Donate.php" target="_blank" class="nav-cta">Donate</a></li>
+    <li><a id="nav-donate-link" href="https://create-found.org/Donate.php" target="_blank" class="nav-cta">Donate</a></li>
   </ul>
   <button id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
@@ -162,41 +164,29 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
   <a href="#venue" class="mm-link">Venue</a>
   <a href="#volunteers" class="mm-link">Volunteer</a>
   <a href="index.html#sponsors" class="mm-link">Sponsors</a>
-  <a href="https://create-found.org/Donate.php" target="_blank" class="mm-cta">Donate →</a>
+  <a id="mm-donate-link" href="https://create-found.org/Donate.php" target="_blank" class="mm-cta">Donate →</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">March 16–28, 2026 · Council Bluffs, IA</p>
-    <h1>U.S. Open Robotics<br>Tournament</h1>
-    <p>Four divisions. Thousands of students. One championship week.</p>
+    <p class="hero-eyebrow" id="hero-eyebrow">March 16–28, 2026 · Council Bluffs, IA</p>
+    <h1 id="hero-title">U.S. Open Robotics<br>Tournament</h1>
+    <p id="hero-sub">Four divisions. Thousands of students. One championship week.</p>
     <div class="btn-row">
       <a href="#divisions" class="btn btn-primary">View Divisions</a>
-      <a href="https://create-webcast.netlify.app/home" target="_blank" class="btn btn-ghost">Watch Webcast →</a>
+      <a id="webcast-btn" href="https://create-webcast.netlify.app/home" target="_blank" class="btn btn-ghost">Watch Webcast →</a>
     </div>
   </div>
 </section>
 
 <!-- META STRIP -->
 <div class="meta-strip">
-  <div class="meta-item">
-    <span class="meta-label">Dates</span>
-    <span class="meta-value">March 16–28, 2026</span>
-  </div>
-  <div class="meta-item">
-    <span class="meta-label">Location</span>
-    <span class="meta-value">Iowa West Field House</span>
-  </div>
-  <div class="meta-item">
-    <span class="meta-label">City</span>
-    <span class="meta-value">Council Bluffs, IA</span>
-  </div>
-  <div class="meta-item">
-    <span class="meta-label">Divisions</span>
-    <span class="meta-value">4</span>
-  </div>
+  <div class="meta-item"><span class="meta-label">Dates</span><span class="meta-value" id="meta-dates">March 16–28, 2026</span></div>
+  <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value" id="meta-venue">Iowa West Field House</span></div>
+  <div class="meta-item"><span class="meta-label">City</span><span class="meta-value" id="meta-city">Council Bluffs, IA</span></div>
+  <div class="meta-item"><span class="meta-label">Divisions</span><span class="meta-value">4</span></div>
 </div>
 
 <!-- DIVISIONS -->
@@ -208,56 +198,56 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
     <div class="division-card">
       <span class="div-level">High School</span>
       <h3>V5 High School</h3>
-      <p class="div-game">"Push Back"</p>
+      <p class="div-game" id="hs-game">"Push Back"</p>
       <div class="div-meta">
-        <div class="div-row"><span>Grades</span><span>9th – 12th</span></div>
-        <div class="div-row"><span>Dates</span><span>March 16–18</span></div>
+        <div class="div-row"><span>Grades</span><span id="hs-grades">9th – 12th</span></div>
+        <div class="div-row"><span>Dates</span><span id="hs-dates">March 16–18</span></div>
       </div>
       <div>
         <div class="div-fee-label">Registration Fee</div>
-        <div class="div-fee">$800</div>
+        <div class="div-fee" id="hs-fee">$800</div>
       </div>
     </div>
 
     <div class="division-card">
       <span class="div-level">Middle School</span>
       <h3>V5 Middle School</h3>
-      <p class="div-game">"Push Back"</p>
+      <p class="div-game" id="ms-game">"Push Back"</p>
       <div class="div-meta">
-        <div class="div-row"><span>Grades</span><span>6th – 9th</span></div>
-        <div class="div-row"><span>Dates</span><span>March 19–21</span></div>
+        <div class="div-row"><span>Grades</span><span id="ms-grades">6th – 9th</span></div>
+        <div class="div-row"><span>Dates</span><span id="ms-dates">March 19–21</span></div>
       </div>
       <div>
         <div class="div-fee-label">Registration Fee</div>
-        <div class="div-fee">$800</div>
+        <div class="div-fee" id="ms-fee">$800</div>
       </div>
     </div>
 
     <div class="division-card">
       <span class="div-level">Middle School</span>
       <h3>VEX IQ Middle School</h3>
-      <p class="div-game">"Mix and Match"</p>
+      <p class="div-game" id="iqms-game">"Mix and Match"</p>
       <div class="div-meta">
-        <div class="div-row"><span>Grades</span><span>6th – 8th</span></div>
-        <div class="div-row"><span>Dates</span><span>March 26–28</span></div>
+        <div class="div-row"><span>Grades</span><span id="iqms-grades">6th – 8th</span></div>
+        <div class="div-row"><span>Dates</span><span id="iqms-dates">March 26–28</span></div>
       </div>
       <div>
         <div class="div-fee-label">Registration Fee</div>
-        <div class="div-fee">$700</div>
+        <div class="div-fee" id="iqms-fee">$700</div>
       </div>
     </div>
 
     <div class="division-card">
       <span class="div-level">Elementary</span>
       <h3>VEX IQ Elementary</h3>
-      <p class="div-game">"Mix and Match"</p>
+      <p class="div-game" id="iqel-game">"Mix and Match"</p>
       <div class="div-meta">
-        <div class="div-row"><span>Grades</span><span>4th – 6th</span></div>
-        <div class="div-row"><span>Dates</span><span>March 26–28</span></div>
+        <div class="div-row"><span>Grades</span><span id="iqel-grades">4th – 6th</span></div>
+        <div class="div-row"><span>Dates</span><span id="iqel-dates">March 26–28</span></div>
       </div>
       <div>
         <div class="div-fee-label">Registration Fee</div>
-        <div class="div-fee">$700</div>
+        <div class="div-fee" id="iqel-fee">$700</div>
       </div>
     </div>
 
@@ -268,38 +258,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
 <section id="documents" class="sec-pad" style="background:#080808;">
   <p class="section-eyebrow">Downloads</p>
   <h2 class="section-title">Event Documents</h2>
-  <div class="docs-grid">
-    <a class="doc-card" href="https://create-found.org/CREATEU.S.Open2026.php" target="_blank">
-      <div class="doc-icon pdf">📄</div>
-      <div class="doc-info"><h4>Code of Conduct</h4><span>PDF</span></div>
-      <span class="doc-arrow">↗</span>
-    </a>
-    <a class="doc-card" href="https://create-found.org/CREATEU.S.Open2026.php" target="_blank">
-      <div class="doc-icon pdf">📄</div>
-      <div class="doc-info"><h4>Qualifying Criteria</h4><span>PDF</span></div>
-      <span class="doc-arrow">↗</span>
-    </a>
-    <a class="doc-card" href="https://create-found.org/CREATEU.S.Open2026.php" target="_blank">
-      <div class="doc-icon pdf">📄</div>
-      <div class="doc-info"><h4>Event Schedules</h4><span>PDF</span></div>
-      <span class="doc-arrow">↗</span>
-    </a>
-    <a class="doc-card" href="https://create-found.org/CREATEU.S.Open2026.php" target="_blank">
-      <div class="doc-icon pdf">📄</div>
-      <div class="doc-info"><h4>Awards Information</h4><span>PDF</span></div>
-      <span class="doc-arrow">↗</span>
-    </a>
-    <a class="doc-card" href="https://create-found.org/CREATEU.S.Open2026.php" target="_blank">
-      <div class="doc-icon form">📋</div>
-      <div class="doc-info"><h4>Mentor / Teacher Nomination</h4><span>FORM</span></div>
-      <span class="doc-arrow">↗</span>
-    </a>
-    <a class="doc-card" href="https://create-found.org/CREATEU.S.Open2026.php" target="_blank">
-      <div class="doc-icon pdf">📄</div>
-      <div class="doc-info"><h4>Site Policies &amp; Guidelines</h4><span>PDF</span></div>
-      <span class="doc-arrow">↗</span>
-    </a>
-  </div>
+  <div class="docs-grid" id="docs-grid"></div>
 </section>
 
 <!-- VENUE -->
@@ -311,13 +270,13 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
       <img src="https://create-found.org/images/2411b_d0359.JPG" alt="Iowa West Field House" loading="lazy"/>
     </div>
     <div class="venue-body">
-      <h3>Iowa West Field House</h3>
-      <p>Home of the U.S. Open Robotics Tournament, the Iowa West Field House is a world-class facility in Council Bluffs, Iowa — just across the river from Omaha, Nebraska.</p>
+      <h3 id="venue-name">Iowa West Field House</h3>
+      <p id="venue-desc">Home of the U.S. Open Robotics Tournament, the Iowa West Field House is a world-class facility in Council Bluffs, Iowa — just across the river from Omaha, Nebraska.</p>
       <div class="venue-address">
         <span>📍</span>
-        <span>5 Arena Way<br>Council Bluffs, IA 51501</span>
+        <span id="venue-address">5 Arena Way<br>Council Bluffs, IA 51501</span>
       </div>
-      <a href="https://maps.google.com/?q=5+Arena+Way+Council+Bluffs+IA" target="_blank" class="btn btn-ghost" style="align-self:flex-start;margin-top:12px;border-radius:30px;font-size:13px;padding:10px 24px;">Get Directions →</a>
+      <a id="venue-map-link" href="https://maps.google.com/?q=5+Arena+Way+Council+Bluffs+IA" target="_blank" class="btn btn-ghost" style="align-self:flex-start;margin-top:12px;border-radius:30px;font-size:13px;padding:10px 24px;">Get Directions →</a>
     </div>
   </div>
 </section>
@@ -328,12 +287,11 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
   <h2 class="section-title">Hotel &amp; Robot Shipping</h2>
   <div class="info-box">
     <h3>Host Hotels</h3>
-    <p>CREATE partners with host hotels in the Council Bluffs / Omaha area that offer robot shipping options, making it easy for out-of-town teams to attend without the hassle of transporting robots on a plane.</p>
-    <p>For reservations and a full list of host hotels, contact us at <a href="mailto:Support@Create-Found.org">Support@Create-Found.org</a> or call <a href="tel:+14026142210">(402) 614-2210</a>.</p>
-    <p>Additional information about Omaha and Council Bluffs area attractions is available through <a href="https://www.unleashcb.com" target="_blank">Unleash CB</a>.</p>
+    <p id="hotel-desc">CREATE partners with host hotels in the Council Bluffs / Omaha area that offer robot shipping options, making it easy for out-of-town teams to attend without the hassle of transporting robots on a plane.</p>
+    <p>For reservations and a full list of host hotels, contact us at <a id="hotel-email-link" href="mailto:Support@Create-Found.org">Support@Create-Found.org</a> or call <a id="hotel-phone-link" href="tel:+14026142210">(402) 614-2210</a>.</p>
     <div class="contact-row">
-      <div class="contact-item">✉️ <a href="mailto:Support@Create-Found.org">Support@Create-Found.org</a></div>
-      <div class="contact-item">📞 <a href="tel:+14026142210">(402) 614-2210</a></div>
+      <div class="contact-item">✉️ <a id="contact-email" href="mailto:Support@Create-Found.org">Support@Create-Found.org</a></div>
+      <div class="contact-item">📞 <a id="contact-phone" href="tel:+14026142210">(402) 614-2210</a></div>
     </div>
   </div>
 </section>
@@ -346,20 +304,20 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
     <div class="vol-card">
       <div class="vol-icon">🏟</div>
       <h3>V5 High School</h3>
-      <p>Referees, scorekeepers, and event staff for the March 16–18 high school tournament.</p>
-      <a href="https://signup.com/go/fbdjpuL" target="_blank" class="btn btn-ghost" style="border-radius:30px;font-size:13px;padding:10px 24px;margin-top:8px;text-align:center;">Sign Up →</a>
+      <p id="vol-hs-desc">Referees, scorekeepers, and event staff for the high school tournament.</p>
+      <a id="vol-hs-link" href="https://signup.com/go/fbdjpuL" target="_blank" class="btn btn-ghost" style="border-radius:30px;font-size:13px;padding:10px 24px;margin-top:8px;text-align:center;">Sign Up →</a>
     </div>
     <div class="vol-card">
       <div class="vol-icon">🏟</div>
       <h3>V5 Middle School</h3>
-      <p>Referees, scorekeepers, and event staff for the March 19–21 middle school tournament.</p>
-      <a href="https://signup.com/go/RHOyWgz" target="_blank" class="btn btn-ghost" style="border-radius:30px;font-size:13px;padding:10px 24px;margin-top:8px;text-align:center;">Sign Up →</a>
+      <p id="vol-ms-desc">Referees, scorekeepers, and event staff for the middle school tournament.</p>
+      <a id="vol-ms-link" href="https://signup.com/go/RHOyWgz" target="_blank" class="btn btn-ghost" style="border-radius:30px;font-size:13px;padding:10px 24px;margin-top:8px;text-align:center;">Sign Up →</a>
     </div>
     <div class="vol-card">
       <div class="vol-icon">🏟</div>
       <h3>VEX IQ</h3>
-      <p>Referees, scorekeepers, and event staff for the March 26–28 VEX IQ tournament.</p>
-      <a href="https://signup.com/go/hFOzfKH" target="_blank" class="btn btn-ghost" style="border-radius:30px;font-size:13px;padding:10px 24px;margin-top:8px;text-align:center;">Sign Up →</a>
+      <p id="vol-iq-desc">Referees, scorekeepers, and event staff for the VEX IQ tournament.</p>
+      <a id="vol-iq-link" href="https://signup.com/go/hFOzfKH" target="_blank" class="btn btn-ghost" style="border-radius:30px;font-size:13px;padding:10px 24px;margin-top:8px;text-align:center;">Sign Up →</a>
     </div>
   </div>
 </section>
@@ -368,18 +326,208 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
 <footer>
   <div>
     <span class="footer-logo">CREATE</span>
-    <span class="copy">© 2008–2026 CREATE Foundation · Omaha, NE</span>
+    <span class="copy">© 2008–<span id="footer-year">2026</span> CREATE Foundation · Omaha, NE</span>
   </div>
   <div class="footer-links">
     <a href="index.html">Home</a>
-    <a href="https://create-found.org/Contact.php" target="_blank">Contact</a>
-    <a href="https://create-found.org/LegalNotice.php" target="_blank">Legal</a>
-    <a href="https://create-found.org/Board_of_Directors.php" target="_blank">Board of Directors</a>
-    <a href="https://create-found.org/Donate.php" target="_blank">Donate</a>
+    <a id="footer-contact" href="https://create-found.org/Contact.php" target="_blank">Contact</a>
+    <a id="footer-legal" href="https://create-found.org/LegalNotice.php" target="_blank">Legal</a>
+    <a id="footer-board" href="https://create-found.org/Board_of_Directors.php" target="_blank">Board of Directors</a>
+    <a id="footer-donate" href="https://create-found.org/Donate.php" target="_blank">Donate</a>
   </div>
 </footer>
 
 <script>
+const DOC_ID = '1wyqrgNmWsAuQvwmqUBDHZ1ZvgmkDLCXBBRU9XQSZxjc';
+const EXPORT_URL = `https://docs.google.com/document/d/${DOC_ID}/export?format=txt`;
+
+const DEFAULTS = {
+  SEASON_YEAR: '2026',
+  DONATE_URL: 'https://create-found.org/Donate.php',
+  CONTACT_URL: 'https://create-found.org/Contact.php',
+  LEGAL_URL: 'https://create-found.org/LegalNotice.php',
+  BOARD_URL: 'https://create-found.org/Board_of_Directors.php',
+
+  USOPEN_HERO_EYEBROW: 'March 16–28, {YEAR} · Council Bluffs, IA',
+  USOPEN_HERO_TITLE: 'U.S. Open Robotics<br>Tournament',
+  USOPEN_HERO_SUB: 'Four divisions. Thousands of students. One championship week.',
+  USOPEN_WEBCAST_URL: 'https://create-webcast.netlify.app/home',
+
+  USOPEN_META_DATES: 'March 16–28, {YEAR}',
+  USOPEN_META_VENUE: 'Iowa West Field House',
+  USOPEN_META_CITY: 'Council Bluffs, IA',
+
+  USOPEN_HS_GAME: '"Push Back"',
+  USOPEN_HS_GRADES: '9th – 12th',
+  USOPEN_HS_DATES: 'March 16–18',
+  USOPEN_HS_FEE: '$800',
+
+  USOPEN_MS_GAME: '"Push Back"',
+  USOPEN_MS_GRADES: '6th – 9th',
+  USOPEN_MS_DATES: 'March 19–21',
+  USOPEN_MS_FEE: '$800',
+
+  USOPEN_IQMS_GAME: '"Mix and Match"',
+  USOPEN_IQMS_GRADES: '6th – 8th',
+  USOPEN_IQMS_DATES: 'March 26–28',
+  USOPEN_IQMS_FEE: '$700',
+
+  USOPEN_IQEL_GAME: '"Mix and Match"',
+  USOPEN_IQEL_GRADES: '4th – 6th',
+  USOPEN_IQEL_DATES: 'March 26–28',
+  USOPEN_IQEL_FEE: '$700',
+
+  USOPEN_DOC_1_LABEL: 'Code of Conduct',        USOPEN_DOC_1_TYPE: 'PDF',  USOPEN_DOC_1_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
+  USOPEN_DOC_2_LABEL: 'Qualifying Criteria',     USOPEN_DOC_2_TYPE: 'PDF',  USOPEN_DOC_2_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
+  USOPEN_DOC_3_LABEL: 'Event Schedules',         USOPEN_DOC_3_TYPE: 'PDF',  USOPEN_DOC_3_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
+  USOPEN_DOC_4_LABEL: 'Awards Information',      USOPEN_DOC_4_TYPE: 'PDF',  USOPEN_DOC_4_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
+  USOPEN_DOC_5_LABEL: 'Mentor / Teacher Nomination', USOPEN_DOC_5_TYPE: 'FORM', USOPEN_DOC_5_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
+  USOPEN_DOC_6_LABEL: 'Site Policies & Guidelines',  USOPEN_DOC_6_TYPE: 'PDF',  USOPEN_DOC_6_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
+
+  USOPEN_VENUE_NAME: 'Iowa West Field House',
+  USOPEN_VENUE_DESC: 'Home of the U.S. Open Robotics Tournament, the Iowa West Field House is a world-class facility in Council Bluffs, Iowa — just across the river from Omaha, Nebraska.',
+  USOPEN_VENUE_ADDRESS: '5 Arena Way<br>Council Bluffs, IA 51501',
+  USOPEN_VENUE_MAP_URL: 'https://maps.google.com/?q=5+Arena+Way+Council+Bluffs+IA',
+
+  USOPEN_HOTEL_DESC: 'CREATE partners with host hotels in the Council Bluffs / Omaha area that offer robot shipping options, making it easy for out-of-town teams to attend without the hassle of transporting robots on a plane.',
+  USOPEN_CONTACT_EMAIL: 'Support@Create-Found.org',
+  USOPEN_CONTACT_PHONE: '(402) 614-2210',
+
+  USOPEN_VOL_HS_URL: 'https://signup.com/go/fbdjpuL',
+  USOPEN_VOL_MS_URL: 'https://signup.com/go/RHOyWgz',
+  USOPEN_VOL_IQ_URL: 'https://signup.com/go/hFOzfKH',
+};
+
+function parseConfig(text) {
+  const cfg = {...DEFAULTS};
+  text.split(/\r?\n/).forEach(line => {
+    line = line.trim();
+    if (!line || line.startsWith('#')) return;
+    const i = line.indexOf(':');
+    if (i < 1) return;
+    const key = line.slice(0, i).trim().toUpperCase();
+    const val = line.slice(i + 1).trim();
+    if (key && val) cfg[key] = val;
+  });
+  return cfg;
+}
+
+function applyConfig(cfg) {
+  const year = cfg.SEASON_YEAR || '2026';
+  cfg = Object.fromEntries(Object.entries(cfg).map(([k, v]) =>
+    [k, typeof v === 'string' ? v.replaceAll('{YEAR}', year) : v]
+  ));
+
+  // Hero
+  document.getElementById('hero-eyebrow').textContent = cfg.USOPEN_HERO_EYEBROW;
+  document.getElementById('hero-title').innerHTML     = cfg.USOPEN_HERO_TITLE;
+  document.getElementById('hero-sub').textContent     = cfg.USOPEN_HERO_SUB;
+  document.getElementById('webcast-btn').href         = cfg.USOPEN_WEBCAST_URL;
+
+  // Meta strip
+  document.getElementById('meta-dates').textContent = cfg.USOPEN_META_DATES;
+  document.getElementById('meta-venue').textContent = cfg.USOPEN_META_VENUE;
+  document.getElementById('meta-city').textContent  = cfg.USOPEN_META_CITY;
+
+  // Divisions
+  document.getElementById('hs-game').textContent   = cfg.USOPEN_HS_GAME;
+  document.getElementById('hs-grades').textContent = cfg.USOPEN_HS_GRADES;
+  document.getElementById('hs-dates').textContent  = cfg.USOPEN_HS_DATES;
+  document.getElementById('hs-fee').textContent    = cfg.USOPEN_HS_FEE;
+
+  document.getElementById('ms-game').textContent   = cfg.USOPEN_MS_GAME;
+  document.getElementById('ms-grades').textContent = cfg.USOPEN_MS_GRADES;
+  document.getElementById('ms-dates').textContent  = cfg.USOPEN_MS_DATES;
+  document.getElementById('ms-fee').textContent    = cfg.USOPEN_MS_FEE;
+
+  document.getElementById('iqms-game').textContent   = cfg.USOPEN_IQMS_GAME;
+  document.getElementById('iqms-grades').textContent = cfg.USOPEN_IQMS_GRADES;
+  document.getElementById('iqms-dates').textContent  = cfg.USOPEN_IQMS_DATES;
+  document.getElementById('iqms-fee').textContent    = cfg.USOPEN_IQMS_FEE;
+
+  document.getElementById('iqel-game').textContent   = cfg.USOPEN_IQEL_GAME;
+  document.getElementById('iqel-grades').textContent = cfg.USOPEN_IQEL_GRADES;
+  document.getElementById('iqel-dates').textContent  = cfg.USOPEN_IQEL_DATES;
+  document.getElementById('iqel-fee').textContent    = cfg.USOPEN_IQEL_FEE;
+
+  // Documents
+  const iconMap = {
+    PDF:  {emoji:'📄', cls:'pdf'},
+    DOC:  {emoji:'📝', cls:'doc'},
+    FORM: {emoji:'📋', cls:'form'},
+    SHEET:{emoji:'📊', cls:'sheet'},
+    LINK: {emoji:'🔗', cls:'link'},
+  };
+  const grid = document.getElementById('docs-grid');
+  grid.innerHTML = '';
+  let d = 1;
+  while (cfg[`USOPEN_DOC_${d}_LABEL`]) {
+    const label = cfg[`USOPEN_DOC_${d}_LABEL`];
+    const url   = cfg[`USOPEN_DOC_${d}_URL`];
+    const type  = (cfg[`USOPEN_DOC_${d}_TYPE`] || 'LINK').toUpperCase();
+    const icon  = iconMap[type] || iconMap.LINK;
+    grid.innerHTML += `
+      <a class="doc-card" href="${url}" target="_blank">
+        <div class="doc-icon ${icon.cls}">${icon.emoji}</div>
+        <div class="doc-info"><h4>${label}</h4><span>${type}</span></div>
+        <span class="doc-arrow">↗</span>
+      </a>`;
+    d++;
+  }
+
+  // Venue
+  document.getElementById('venue-name').textContent    = cfg.USOPEN_VENUE_NAME;
+  document.getElementById('venue-desc').textContent    = cfg.USOPEN_VENUE_DESC;
+  document.getElementById('venue-address').innerHTML   = cfg.USOPEN_VENUE_ADDRESS;
+  document.getElementById('venue-map-link').href       = cfg.USOPEN_VENUE_MAP_URL;
+
+  // Hotel / contact
+  document.getElementById('hotel-desc').textContent    = cfg.USOPEN_HOTEL_DESC;
+  const email = cfg.USOPEN_CONTACT_EMAIL;
+  const phone = cfg.USOPEN_CONTACT_PHONE;
+  document.getElementById('hotel-email-link').href        = `mailto:${email}`;
+  document.getElementById('hotel-email-link').textContent = email;
+  document.getElementById('hotel-phone-link').href        = `tel:${phone.replace(/\D/g,'')}`;
+  document.getElementById('hotel-phone-link').textContent = phone;
+  document.getElementById('contact-email').href           = `mailto:${email}`;
+  document.getElementById('contact-email').textContent    = email;
+  document.getElementById('contact-phone').href           = `tel:${phone.replace(/\D/g,'')}`;
+  document.getElementById('contact-phone').textContent    = phone;
+
+  // Volunteer links
+  document.getElementById('vol-hs-link').href = cfg.USOPEN_VOL_HS_URL;
+  document.getElementById('vol-ms-link').href = cfg.USOPEN_VOL_MS_URL;
+  document.getElementById('vol-iq-link').href = cfg.USOPEN_VOL_IQ_URL;
+
+  // Footer
+  document.getElementById('footer-year').textContent = year;
+  const setHref = (id, url) => { const el = document.getElementById(id); if (el && url) el.href = url; };
+  setHref('nav-donate-link', cfg.DONATE_URL);
+  setHref('mm-donate-link',  cfg.DONATE_URL);
+  setHref('footer-donate',   cfg.DONATE_URL);
+  setHref('footer-contact',  cfg.CONTACT_URL);
+  setHref('footer-legal',    cfg.LEGAL_URL);
+  setHref('footer-board',    cfg.BOARD_URL);
+}
+
+async function fetchConfig(url) {
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const text = await res.text();
+  if (text.trim().startsWith('<!') || text.trim().startsWith('<html')) throw new Error('private');
+  return parseConfig(text);
+}
+
+(async function init() {
+  applyConfig(DEFAULTS);
+  const urlToTry = localStorage.getItem('create_config_url') || EXPORT_URL;
+  try {
+    applyConfig(await fetchConfig(urlToTry));
+  } catch(e) {
+    // silently use defaults
+  }
+})();
+
 // NAV scroll
 const navEl = document.getElementById('nav');
 window.addEventListener('scroll', () => navEl.classList.toggle('solid', window.scrollY > 60), {passive:true});
