@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Legal Notice — CREATE Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e31937;--nav-h:56px;}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
+#nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
+.nav-logo{font-size:20px;font-weight:600;letter-spacing:4px;color:#fff;text-decoration:none;text-transform:uppercase;}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{font-size:13px;color:rgba(255,255,255,.85);text-decoration:none;padding:8px 12px;border-radius:6px;transition:background .15s;white-space:nowrap;}
+.nav-links a:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav-cta{background:var(--red)!important;color:#fff!important;border-radius:6px!important;}
+#hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+#hamburger span{display:block;width:22px;height:1.5px;background:#fff;}
+#mobile-menu{display:none;position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+#mobile-menu.open{display:flex}
+#mobile-menu a{font-size:28px;font-weight:300;color:#fff;text-decoration:none;padding:12px 24px;}
+#mobile-menu .mm-cta{font-size:22px;color:var(--red);font-weight:500;margin-top:20px;}
+#close-menu{position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;}
+
+.page-hero{padding:140px 40px 60px;text-align:center;}
+.section-eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+.page-hero h1{font-size:clamp(32px,6vw,56px);font-weight:600;letter-spacing:-1px;line-height:1.05;}
+
+.legal-body{max-width:720px;margin:0 auto;padding:0 40px 120px;}
+.legal-section{margin-bottom:48px;}
+.legal-section h2{font-size:17px;font-weight:600;margin-bottom:16px;color:#fff;}
+.legal-section p{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:12px;}
+.legal-section p:last-child{margin-bottom:0;}
+.legal-divider{border:none;border-top:1px solid #1a1a1a;margin:40px 0;}
+
+footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-size:16px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#fff;}
+.copy{font-size:12px;color:rgba(255,255,255,.28);margin-top:6px;display:block;}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+
+@media(max-width:700px){
+  .legal-body{padding:0 24px 80px;}
+  .nav-links{display:none;}
+  #hamburger{display:flex;}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+  .page-hero{padding:120px 24px 48px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <span style="display:inline-block;height:38px;overflow:hidden;vertical-align:middle;"><img src="create-logo.png.png" alt="CREATE" style="height:95px;width:auto;margin-top:-20px;" onerror="this.parentElement.style.display='none';document.getElementById('nav-logo-text').style.display='inline'"/></span>
+    <span id="nav-logo-text" style="display:none">CREATE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#announcements">News</a></li>
+    <li><a href="index.html#programs">Programs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+  </ul>
+  <button id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div id="mobile-menu">
+  <button id="close-menu" aria-label="Close menu">×</button>
+  <a href="index.html" class="mm-link">Home</a>
+  <a href="contact.html" class="mm-link">Contact</a>
+  <a href="donate.html" class="mm-cta">Donate →</a>
+</div>
+
+<div class="page-hero">
+  <p class="section-eyebrow">Policies</p>
+  <h1>Legal Notice</h1>
+</div>
+
+<div class="legal-body">
+
+  <div class="legal-section">
+    <h2>Third-Party Websites</h2>
+    <p>The CREATE Foundation website may contain links to third-party websites. The CREATE Foundation is not responsible for the actions, content, accuracy, opinions expressed, privacy policies, products, or services available on or through such external sites.</p>
+    <p>The inclusion of any link does not imply endorsement, support, or approval by the CREATE Foundation of the linked site or its content. Users access linked third-party sites at their own risk.</p>
+    <p>The CREATE Foundation reserves the right to edit, remove, or deny access to content it deems unacceptable or inappropriate.</p>
+  </div>
+
+  <hr class="legal-divider"/>
+
+  <div class="legal-section">
+    <h2>Trademarks</h2>
+    <p>The CREATE Foundation logo is a registered trademark of the CREATE Foundation. All rights reserved.</p>
+    <p>VEX is a registered trademark of Innovation First International, Inc. and is used here with permission.</p>
+  </div>
+
+  <hr class="legal-divider"/>
+
+  <div class="legal-section">
+    <h2>Copyright</h2>
+    <p>© Copyright 2008–2026 CREATE Foundation. All rights reserved. Unauthorized reproduction or distribution of any content on this site is prohibited without prior written permission from the CREATE Foundation.</p>
+  </div>
+
+  <hr class="legal-divider"/>
+
+  <div class="legal-section">
+    <h2>Contact</h2>
+    <p>For legal inquiries, please contact the CREATE Foundation at <a href="mailto:Support@Create-Found.org" style="color:var(--red);text-decoration:none;">Support@Create-Found.org</a> or by phone at (402) 614-2210.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">CREATE</span>
+    <span class="copy">© 2008–2026 CREATE Foundation · Omaha, NE</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="board.html">Board of Directors</a>
+    <a href="donate.html">Donate</a>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('hamburger');
+const mm  = document.getElementById('mobile-menu');
+const cls = document.getElementById('close-menu');
+const closeMM = () => { mm.classList.remove('open'); document.body.style.overflow=''; };
+ham.addEventListener('click', () => { mm.classList.add('open'); document.body.style.overflow='hidden'; });
+cls.addEventListener('click', closeMM);
+mm.querySelectorAll('.mm-link').forEach(l => l.addEventListener('click', closeMM));
+</script>
+</body>
+</html>

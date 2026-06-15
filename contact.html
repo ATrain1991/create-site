@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — CREATE Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e31937;--nav-h:56px;}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
+#nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
+.nav-logo{font-size:20px;font-weight:600;letter-spacing:4px;color:#fff;text-decoration:none;text-transform:uppercase;}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{font-size:13px;color:rgba(255,255,255,.85);text-decoration:none;padding:8px 12px;border-radius:6px;transition:background .15s;white-space:nowrap;}
+.nav-links a:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav-cta{background:var(--red)!important;color:#fff!important;border-radius:6px!important;}
+#hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+#hamburger span{display:block;width:22px;height:1.5px;background:#fff;}
+#mobile-menu{display:none;position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+#mobile-menu.open{display:flex}
+#mobile-menu a{font-size:28px;font-weight:300;color:#fff;text-decoration:none;padding:12px 24px;}
+#mobile-menu .mm-cta{font-size:22px;color:var(--red);font-weight:500;margin-top:20px;}
+#close-menu{position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;}
+
+.page-hero{padding:140px 40px 80px;text-align:center;}
+.section-eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+.page-hero h1{font-size:clamp(32px,6vw,60px);font-weight:600;letter-spacing:-1px;line-height:1.05;margin-bottom:16px;}
+.page-hero p{font-size:17px;font-weight:300;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto;line-height:1.65;}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:860px;margin:0 auto 80px;padding:0 40px;}
+.contact-card{background:#111;border:1px solid #222;border-radius:20px;padding:40px 36px;display:flex;flex-direction:column;gap:14px;}
+.contact-card .icon{font-size:28px;width:56px;height:56px;background:rgba(227,25,55,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;}
+.contact-card h3{font-size:19px;font-weight:600;}
+.contact-card p{font-size:14px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65;}
+.contact-card a{color:#fff;text-decoration:none;font-size:15px;font-weight:500;margin-top:4px;}
+.contact-card a:hover{color:var(--red);}
+
+.form-section{max-width:680px;margin:0 auto 120px;padding:0 40px;}
+.form-section h2{font-size:26px;font-weight:600;margin-bottom:32px;text-align:center;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:#111;border:1px solid #2a2a2a;border-radius:10px;padding:13px 16px;color:#fff;font-size:14px;font-family:inherit;outline:none;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#555;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.2);}
+.form-group textarea{resize:vertical;min-height:140px;}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='rgba(255,255,255,.3)' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer;}
+.form-group select option{background:#111;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.btn-submit{width:100%;background:var(--red);color:#fff;border:none;border-radius:30px;padding:14px;font-size:15px;font-weight:500;font-family:inherit;cursor:pointer;margin-top:8px;transition:opacity .15s;}
+.btn-submit:hover{opacity:.88;}
+#form-success{display:none;background:rgba(52,168,83,.1);border:1px solid rgba(52,168,83,.3);border-radius:12px;padding:20px;text-align:center;color:rgba(255,255,255,.8);font-size:14px;margin-top:16px;}
+
+footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-size:16px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#fff;}
+.copy{font-size:12px;color:rgba(255,255,255,.28);margin-top:6px;display:block;}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .15s;}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+
+@media(max-width:700px){
+  .contact-grid{grid-template-columns:1fr;padding:0 24px;}
+  .form-section{padding:0 24px;}
+  .form-row{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  #hamburger{display:flex;}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <span style="display:inline-block;height:38px;overflow:hidden;vertical-align:middle;"><img src="create-logo.png.png" alt="CREATE" style="height:95px;width:auto;margin-top:-20px;" onerror="this.parentElement.style.display='none';document.getElementById('nav-logo-text').style.display='inline'"/></span>
+    <span id="nav-logo-text" style="display:none">CREATE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#announcements">News</a></li>
+    <li><a href="index.html#programs">Programs</a></li>
+    <li><a href="index.html#volunteers">Volunteer</a></li>
+    <li><a href="index.html#sponsors">Sponsors</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+  </ul>
+  <button id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div id="mobile-menu">
+  <button id="close-menu" aria-label="Close menu">×</button>
+  <a href="index.html" class="mm-link">Home</a>
+  <a href="index.html#programs" class="mm-link">Programs</a>
+  <a href="index.html#volunteers" class="mm-link">Volunteer</a>
+  <a href="donate.html" class="mm-cta">Donate →</a>
+</div>
+
+<div class="page-hero">
+  <p class="section-eyebrow">Get In Touch</p>
+  <h1>Contact CREATE</h1>
+  <p>Questions about tournaments, volunteering, sponsorship, or anything else — we'd love to hear from you.</p>
+</div>
+
+<div class="contact-grid">
+  <div class="contact-card">
+    <div class="icon">📞</div>
+    <h3>Phone</h3>
+    <p>Call us to make a donation by card, request an invoice, or ask about events.</p>
+    <a href="tel:+14026142210">(402) 614-2210</a>
+  </div>
+  <div class="contact-card">
+    <div class="icon">✉️</div>
+    <h3>Email</h3>
+    <p>Send us a message and we'll get back to you as soon as possible.</p>
+    <a href="mailto:Support@Create-Found.org">Support@Create-Found.org</a>
+  </div>
+</div>
+
+<div class="form-section">
+  <h2>Send a Message</h2>
+  <form id="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Jane" required/>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Smith" required/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="jane@example.com" required/>
+    </div>
+    <div class="form-group">
+      <label>Topic</label>
+      <select>
+        <option value="">Select a topic…</option>
+        <option>Tournament Registration</option>
+        <option>Volunteering</option>
+        <option>Sponsorship</option>
+        <option>Donation</option>
+        <option>General Question</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="How can we help?" required></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Send Message</button>
+    <div id="form-success">✓ Message sent! We'll be in touch shortly.</div>
+  </form>
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">CREATE</span>
+    <span class="copy">© 2008–2026 CREATE Foundation · Omaha, NE</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="legal.html">Legal</a>
+    <a href="board.html">Board of Directors</a>
+    <a href="donate.html">Donate</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+const ham = document.getElementById('hamburger');
+const mm  = document.getElementById('mobile-menu');
+const cls = document.getElementById('close-menu');
+const closeMM = () => { mm.classList.remove('open'); document.body.style.overflow=''; };
+ham.addEventListener('click', () => { mm.classList.add('open'); document.body.style.overflow='hidden'; });
+cls.addEventListener('click', closeMM);
+mm.querySelectorAll('.mm-link').forEach(l => l.addEventListener('click', closeMM));
+</script>
+</body>
+</html>
