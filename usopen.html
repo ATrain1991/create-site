@@ -59,8 +59,13 @@ section{position:relative;width:100%;overflow:hidden;}
 
 /* DIVISIONS */
 .divisions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1080px;margin:0 auto;}
-.division-card{background:#111;border:1px solid #222;border-radius:16px;padding:36px 28px 32px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,background .2s;}
-.division-card:hover{background:#161616;border-color:#363636;}
+.division-card{background:#111;border:1px solid #222;border-radius:16px;padding:36px 28px 28px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,background .2s;cursor:pointer;}
+.division-card:hover{background:#161616;border-color:#444;}
+.division-card.open{background:#161616;border-color:#444;}
+.div-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.div-header-left{display:flex;flex-direction:column;gap:6px;}
+.div-chevron{font-size:18px;color:rgba(255,255,255,.3);transition:transform .3s,color .2s;flex-shrink:0;margin-top:2px;}
+.division-card.open .div-chevron{transform:rotate(180deg);color:var(--red);}
 .div-level{font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);}
 .division-card h3{font-size:20px;font-weight:600;letter-spacing:-0.2px;}
 .div-game{font-size:13px;color:rgba(255,255,255,.45);font-style:italic;margin-top:-4px;}
@@ -70,6 +75,12 @@ section{position:relative;width:100%;overflow:hidden;}
 .div-row span:last-child{color:#fff;font-weight:500;}
 .div-fee{font-size:22px;font-weight:600;color:#fff;margin-top:8px;}
 .div-fee-label{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase;}
+.div-expand{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.division-card.open .div-expand{max-height:400px;}
+.div-expand-inner{border-top:1px solid #222;margin-top:12px;padding-top:16px;display:flex;flex-direction:column;gap:12px;}
+.div-details-text{font-size:13px;font-weight:300;color:rgba(255,255,255,.52);line-height:1.7;}
+.div-reg-btn{display:inline-block;background:var(--red);color:#fff;border-radius:30px;padding:10px 24px;font-size:13px;font-weight:500;text-decoration:none;text-align:center;transition:opacity .15s;}
+.div-reg-btn:hover{opacity:.88;}
 
 /* DOCUMENTS */
 .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1000px;margin:0 auto;}
@@ -195,10 +206,15 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
   <h2 class="section-title">Tournament Divisions</h2>
   <div class="divisions-grid">
 
-    <div class="division-card">
-      <span class="div-level">High School</span>
-      <h3>RECF Achieve High School</h3>
-      <p class="div-game" id="hs-game">"Push Back"</p>
+    <div class="division-card" onclick="toggleDiv(this)">
+      <div class="div-header">
+        <div class="div-header-left">
+          <span class="div-level">High School</span>
+          <h3>RECF Achieve High School</h3>
+          <p class="div-game" id="hs-game">"Push Back"</p>
+        </div>
+        <span class="div-chevron">⌄</span>
+      </div>
       <div class="div-meta">
         <div class="div-row"><span>Grades</span><span id="hs-grades">9th – 12th</span></div>
         <div class="div-row"><span>Dates</span><span id="hs-dates">March 16–18</span></div>
@@ -207,12 +223,23 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
         <div class="div-fee-label">Registration Fee</div>
         <div class="div-fee" id="hs-fee">$800</div>
       </div>
+      <div class="div-expand">
+        <div class="div-expand-inner">
+          <p class="div-details-text" id="hs-details">Game-based head-to-head robotics challenge for high school students. Teams design, build, and program robots to compete in the "Push Back" game. Registration fee covers the full multi-day event including all matches and awards ceremony.</p>
+          <a id="hs-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+        </div>
+      </div>
     </div>
 
-    <div class="division-card">
-      <span class="div-level">Middle School</span>
-      <h3>RECF Achieve Middle School</h3>
-      <p class="div-game" id="ms-game">"Push Back"</p>
+    <div class="division-card" onclick="toggleDiv(this)">
+      <div class="div-header">
+        <div class="div-header-left">
+          <span class="div-level">Middle School</span>
+          <h3>RECF Achieve Middle School</h3>
+          <p class="div-game" id="ms-game">"Push Back"</p>
+        </div>
+        <span class="div-chevron">⌄</span>
+      </div>
       <div class="div-meta">
         <div class="div-row"><span>Grades</span><span id="ms-grades">6th – 9th</span></div>
         <div class="div-row"><span>Dates</span><span id="ms-dates">March 19–21</span></div>
@@ -221,12 +248,23 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
         <div class="div-fee-label">Registration Fee</div>
         <div class="div-fee" id="ms-fee">$800</div>
       </div>
+      <div class="div-expand">
+        <div class="div-expand-inner">
+          <p class="div-details-text" id="ms-details">Middle school teams compete in the same "Push Back" game as high school in a division tailored for grades 6–9. Builds foundational STEM skills through hands-on competitive robotics.</p>
+          <a id="ms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+        </div>
+      </div>
     </div>
 
-    <div class="division-card">
-      <span class="div-level">Middle School</span>
-      <h3>RECF Engage Middle School</h3>
-      <p class="div-game" id="iqms-game">"Mix and Match"</p>
+    <div class="division-card" onclick="toggleDiv(this)">
+      <div class="div-header">
+        <div class="div-header-left">
+          <span class="div-level">Middle School</span>
+          <h3>RECF Engage Middle School</h3>
+          <p class="div-game" id="iqms-game">"Mix and Match"</p>
+        </div>
+        <span class="div-chevron">⌄</span>
+      </div>
       <div class="div-meta">
         <div class="div-row"><span>Grades</span><span id="iqms-grades">6th – 8th</span></div>
         <div class="div-row"><span>Dates</span><span id="iqms-dates">March 26–28</span></div>
@@ -235,12 +273,23 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
         <div class="div-fee-label">Registration Fee</div>
         <div class="div-fee" id="iqms-fee">$700</div>
       </div>
+      <div class="div-expand">
+        <div class="div-expand-inner">
+          <p class="div-details-text" id="iqms-details">An introductory robotics program focused on cooperative play and teamwork. The "Mix and Match" game emphasizes collaboration and creative problem solving for middle school students.</p>
+          <a id="iqms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+        </div>
+      </div>
     </div>
 
-    <div class="division-card">
-      <span class="div-level">Elementary</span>
-      <h3>RECF Engage Elementary</h3>
-      <p class="div-game" id="iqel-game">"Mix and Match"</p>
+    <div class="division-card" onclick="toggleDiv(this)">
+      <div class="div-header">
+        <div class="div-header-left">
+          <span class="div-level">Elementary</span>
+          <h3>RECF Engage Elementary</h3>
+          <p class="div-game" id="iqel-game">"Mix and Match"</p>
+        </div>
+        <span class="div-chevron">⌄</span>
+      </div>
       <div class="div-meta">
         <div class="div-row"><span>Grades</span><span id="iqel-grades">4th – 6th</span></div>
         <div class="div-row"><span>Dates</span><span id="iqel-dates">March 26–28</span></div>
@@ -248,6 +297,12 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
       <div>
         <div class="div-fee-label">Registration Fee</div>
         <div class="div-fee" id="iqel-fee">$700</div>
+      </div>
+      <div class="div-expand">
+        <div class="div-expand-inner">
+          <p class="div-details-text" id="iqel-details">The perfect on-ramp to competitive robotics for elementary students. Teams work together in the "Mix and Match" game, building teamwork and a love of engineering from an early age.</p>
+          <a id="iqel-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+        </div>
       </div>
     </div>
 
@@ -361,28 +416,36 @@ const DEFAULTS = {
   USOPEN_HS_GRADES: '9th – 12th',
   USOPEN_HS_DATES: 'March 16–18',
   USOPEN_HS_FEE: '$800',
+  USOPEN_HS_DETAILS: 'Game-based head-to-head robotics challenge for high school students. Teams design, build, and program robots to compete in the "Push Back" game. Registration fee covers the full multi-day event including all matches and awards ceremony.',
+  USOPEN_HS_REG_URL: '',
 
   USOPEN_MS_GAME: '"Push Back"',
   USOPEN_MS_GRADES: '6th – 9th',
   USOPEN_MS_DATES: 'March 19–21',
   USOPEN_MS_FEE: '$800',
+  USOPEN_MS_DETAILS: 'Middle school teams compete in the same "Push Back" game as high school in a division tailored for grades 6–9. Builds foundational STEM skills through hands-on competitive robotics.',
+  USOPEN_MS_REG_URL: '',
 
   USOPEN_IQMS_GAME: '"Mix and Match"',
   USOPEN_IQMS_GRADES: '6th – 8th',
   USOPEN_IQMS_DATES: 'March 26–28',
   USOPEN_IQMS_FEE: '$700',
+  USOPEN_IQMS_DETAILS: 'An introductory robotics program focused on cooperative play and teamwork. The "Mix and Match" game emphasizes collaboration and creative problem solving for middle school students.',
+  USOPEN_IQMS_REG_URL: '',
 
   USOPEN_IQEL_GAME: '"Mix and Match"',
   USOPEN_IQEL_GRADES: '4th – 6th',
   USOPEN_IQEL_DATES: 'March 26–28',
   USOPEN_IQEL_FEE: '$700',
+  USOPEN_IQEL_DETAILS: 'The perfect on-ramp to competitive robotics for elementary students. Teams work together in the "Mix and Match" game, building teamwork and a love of engineering from an early age.',
+  USOPEN_IQEL_REG_URL: '',
 
-  USOPEN_DOC_1_LABEL: 'Code of Conduct',        USOPEN_DOC_1_TYPE: 'PDF',  USOPEN_DOC_1_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
-  USOPEN_DOC_2_LABEL: 'Qualifying Criteria',     USOPEN_DOC_2_TYPE: 'PDF',  USOPEN_DOC_2_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
-  USOPEN_DOC_3_LABEL: 'Event Schedules',         USOPEN_DOC_3_TYPE: 'PDF',  USOPEN_DOC_3_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
-  USOPEN_DOC_4_LABEL: 'Awards Information',      USOPEN_DOC_4_TYPE: 'PDF',  USOPEN_DOC_4_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
-  USOPEN_DOC_5_LABEL: 'Mentor / Teacher Nomination', USOPEN_DOC_5_TYPE: 'FORM', USOPEN_DOC_5_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
-  USOPEN_DOC_6_LABEL: 'Site Policies & Guidelines',  USOPEN_DOC_6_TYPE: 'PDF',  USOPEN_DOC_6_URL: 'https://create-found.org/CREATEU.S.Open{YEAR}.php',
+  USOPEN_DOC_1_LABEL: 'Code of Conduct',             USOPEN_DOC_1_TYPE: 'PDF',  USOPEN_DOC_1_URL: '',
+  USOPEN_DOC_2_LABEL: 'Qualifying Criteria',          USOPEN_DOC_2_TYPE: 'PDF',  USOPEN_DOC_2_URL: '',
+  USOPEN_DOC_3_LABEL: 'Event Schedules',              USOPEN_DOC_3_TYPE: 'PDF',  USOPEN_DOC_3_URL: '',
+  USOPEN_DOC_4_LABEL: 'Awards Information',           USOPEN_DOC_4_TYPE: 'PDF',  USOPEN_DOC_4_URL: '',
+  USOPEN_DOC_5_LABEL: 'Mentor / Teacher Nomination',  USOPEN_DOC_5_TYPE: 'FORM', USOPEN_DOC_5_URL: '',
+  USOPEN_DOC_6_LABEL: 'Site Policies & Guidelines',   USOPEN_DOC_6_TYPE: 'PDF',  USOPEN_DOC_6_URL: '',
 
   USOPEN_VENUE_NAME: 'Iowa West Field House',
   USOPEN_VENUE_DESC: 'Home of the U.S. Open Robotics Tournament, the Iowa West Field House is a world-class facility in Council Bluffs, Iowa — just across the river from Omaha, Nebraska.',
@@ -429,26 +492,25 @@ function applyConfig(cfg) {
   document.getElementById('meta-venue').textContent = cfg.USOPEN_META_VENUE;
   document.getElementById('meta-city').textContent  = cfg.USOPEN_META_CITY;
 
-  // Divisions
-  document.getElementById('hs-game').textContent   = cfg.USOPEN_HS_GAME;
-  document.getElementById('hs-grades').textContent = cfg.USOPEN_HS_GRADES;
-  document.getElementById('hs-dates').textContent  = cfg.USOPEN_HS_DATES;
-  document.getElementById('hs-fee').textContent    = cfg.USOPEN_HS_FEE;
-
-  document.getElementById('ms-game').textContent   = cfg.USOPEN_MS_GAME;
-  document.getElementById('ms-grades').textContent = cfg.USOPEN_MS_GRADES;
-  document.getElementById('ms-dates').textContent  = cfg.USOPEN_MS_DATES;
-  document.getElementById('ms-fee').textContent    = cfg.USOPEN_MS_FEE;
-
-  document.getElementById('iqms-game').textContent   = cfg.USOPEN_IQMS_GAME;
-  document.getElementById('iqms-grades').textContent = cfg.USOPEN_IQMS_GRADES;
-  document.getElementById('iqms-dates').textContent  = cfg.USOPEN_IQMS_DATES;
-  document.getElementById('iqms-fee').textContent    = cfg.USOPEN_IQMS_FEE;
-
-  document.getElementById('iqel-game').textContent   = cfg.USOPEN_IQEL_GAME;
-  document.getElementById('iqel-grades').textContent = cfg.USOPEN_IQEL_GRADES;
-  document.getElementById('iqel-dates').textContent  = cfg.USOPEN_IQEL_DATES;
-  document.getElementById('iqel-fee').textContent    = cfg.USOPEN_IQEL_FEE;
+  // Divisions — summary fields
+  const divs = [
+    {pfx:'hs',   detailId:'hs-details',   regId:'hs-reg-link'},
+    {pfx:'ms',   detailId:'ms-details',   regId:'ms-reg-link'},
+    {pfx:'iqms', detailId:'iqms-details', regId:'iqms-reg-link'},
+    {pfx:'iqel', detailId:'iqel-details', regId:'iqel-reg-link'},
+  ];
+  divs.forEach(({pfx, detailId, regId}) => {
+    const p = pfx.toUpperCase();
+    document.getElementById(`${pfx}-game`).textContent   = cfg[`USOPEN_${p}_GAME`];
+    document.getElementById(`${pfx}-grades`).textContent = cfg[`USOPEN_${p}_GRADES`];
+    document.getElementById(`${pfx}-dates`).textContent  = cfg[`USOPEN_${p}_DATES`];
+    document.getElementById(`${pfx}-fee`).textContent    = cfg[`USOPEN_${p}_FEE`];
+    document.getElementById(detailId).textContent        = cfg[`USOPEN_${p}_DETAILS`] || '';
+    const regEl = document.getElementById(regId);
+    const regUrl = cfg[`USOPEN_${p}_REG_URL`];
+    if (regUrl) { regEl.href = regUrl; regEl.style.display = ''; }
+    else { regEl.style.display = 'none'; }
+  });
 
   // Documents
   const iconMap = {
@@ -462,15 +524,17 @@ function applyConfig(cfg) {
   grid.innerHTML = '';
   let d = 1;
   while (cfg[`USOPEN_DOC_${d}_LABEL`]) {
-    const label = cfg[`USOPEN_DOC_${d}_LABEL`];
-    const url   = cfg[`USOPEN_DOC_${d}_URL`];
-    const type  = (cfg[`USOPEN_DOC_${d}_TYPE`] || 'LINK').toUpperCase();
-    const icon  = iconMap[type] || iconMap.LINK;
+    const label   = cfg[`USOPEN_DOC_${d}_LABEL`];
+    const url     = cfg[`USOPEN_DOC_${d}_URL`];
+    const type    = (cfg[`USOPEN_DOC_${d}_TYPE`] || 'LINK').toUpperCase();
+    const icon    = iconMap[type] || iconMap.LINK;
+    const noUrl   = !url;
     grid.innerHTML += `
-      <a class="doc-card" href="${url}" target="_blank">
+      <a class="doc-card" href="${noUrl ? '#' : url}" ${noUrl ? '' : 'target="_blank"'}
+         style="${noUrl ? 'opacity:.4;cursor:default;pointer-events:none' : ''}">
         <div class="doc-icon ${icon.cls}">${icon.emoji}</div>
-        <div class="doc-info"><h4>${label}</h4><span>${type}</span></div>
-        <span class="doc-arrow">↗</span>
+        <div class="doc-info"><h4>${label}</h4><span>${noUrl ? 'Coming soon' : type}</span></div>
+        <span class="doc-arrow">${noUrl ? '–' : '↗'}</span>
       </a>`;
     d++;
   }
@@ -527,6 +591,11 @@ async function fetchConfig(url) {
     // silently use defaults
   }
 })();
+
+// Division expand/collapse
+function toggleDiv(card) {
+  card.classList.toggle('open');
+}
 
 // NAV scroll
 const navEl = document.getElementById('nav');
