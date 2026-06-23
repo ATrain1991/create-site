@@ -266,7 +266,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
           <p class="div-details-text" id="hs-details">Game-based head-to-head robotics challenge for high school students. Teams design, build, and program robots to compete in the "Push Back" game. Registration fee covers the full multi-day event including all matches and awards ceremony.</p>
           <div class="div-btn-row">
             <a id="hs-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
-            <a href="https://create-found.org/documents/12026USOHS-VRCScheduleofEvents_002.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+            <a id="hs-sched-link" href="#" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
           </div>
         </div>
       </div>
@@ -294,7 +294,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
           <p class="div-details-text" id="ms-details">Middle school teams compete in the same "Push Back" game as high school in a division tailored for grades 6–9. Builds foundational STEM skills through hands-on competitive robotics.</p>
           <div class="div-btn-row">
             <a id="ms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
-            <a href="https://create-found.org/documents/22026USOMS-VRCScheduleofEvents_002.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+            <a id="ms-sched-link" href="#" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
           </div>
         </div>
       </div>
@@ -322,7 +322,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
           <p class="div-details-text" id="iqms-details">An introductory robotics program focused on cooperative play and teamwork. The "Mix and Match" game emphasizes collaboration and creative problem solving for middle school students.</p>
           <div class="div-btn-row">
             <a id="iqms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
-            <a href="https://create-found.org/documents/42026VEXIQMiddleSchool-USOSchedule_001.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+            <a id="iqms-sched-link" href="#" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
           </div>
         </div>
       </div>
@@ -350,7 +350,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
           <p class="div-details-text" id="iqel-details">The perfect on-ramp to competitive robotics for elementary students. Teams work together in the "Mix and Match" game, building teamwork and a love of engineering from an early age.</p>
           <div class="div-btn-row">
             <a id="iqel-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
-            <a href="https://create-found.org/documents/52026VEXIQElementarySchool-USOSchedule_002.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+            <a id="iqel-sched-link" href="#" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
           </div>
         </div>
       </div>
@@ -559,6 +559,7 @@ const DEFAULTS = {
   USOPEN_HS_FEE: '$800',
   USOPEN_HS_DETAILS: 'Game-based head-to-head robotics challenge for high school students. Teams design, build, and program robots to compete in the "Push Back" game. Registration fee covers the full multi-day event including all matches and awards ceremony.',
   USOPEN_HS_REG_URL: '',
+  USOPEN_HS_SCHEDULE_URL: '',
 
   USOPEN_MS_GAME: '"Push Back"',
   USOPEN_MS_GRADES: '6th – 9th',
@@ -566,6 +567,7 @@ const DEFAULTS = {
   USOPEN_MS_FEE: '$800',
   USOPEN_MS_DETAILS: 'Middle school teams compete in the same "Push Back" game as high school in a division tailored for grades 6–9. Builds foundational STEM skills through hands-on competitive robotics.',
   USOPEN_MS_REG_URL: '',
+  USOPEN_MS_SCHEDULE_URL: '',
 
   USOPEN_IQMS_GAME: '"Mix and Match"',
   USOPEN_IQMS_GRADES: '6th – 8th',
@@ -573,6 +575,7 @@ const DEFAULTS = {
   USOPEN_IQMS_FEE: '$700',
   USOPEN_IQMS_DETAILS: 'An introductory robotics program focused on cooperative play and teamwork. The "Mix and Match" game emphasizes collaboration and creative problem solving for middle school students.',
   USOPEN_IQMS_REG_URL: '',
+  USOPEN_IQMS_SCHEDULE_URL: '',
 
   USOPEN_IQEL_GAME: '"Mix and Match"',
   USOPEN_IQEL_GRADES: '4th – 6th',
@@ -580,6 +583,7 @@ const DEFAULTS = {
   USOPEN_IQEL_FEE: '$700',
   USOPEN_IQEL_DETAILS: 'The perfect on-ramp to competitive robotics for elementary students. Teams work together in the "Mix and Match" game, building teamwork and a love of engineering from an early age.',
   USOPEN_IQEL_REG_URL: '',
+  USOPEN_IQEL_SCHEDULE_URL: '',
 
   USOPEN_DOC_1_LABEL: 'Code of Conduct',             USOPEN_DOC_1_TYPE: 'PDF',  USOPEN_DOC_1_URL: '',
   USOPEN_DOC_2_LABEL: 'Qualifying Criteria',          USOPEN_DOC_2_TYPE: 'PDF',  USOPEN_DOC_2_URL: '',
@@ -635,12 +639,12 @@ function applyConfig(cfg) {
 
   // Divisions — summary fields
   const divs = [
-    {pfx:'hs',   detailId:'hs-details',   regId:'hs-reg-link'},
-    {pfx:'ms',   detailId:'ms-details',   regId:'ms-reg-link'},
-    {pfx:'iqms', detailId:'iqms-details', regId:'iqms-reg-link'},
-    {pfx:'iqel', detailId:'iqel-details', regId:'iqel-reg-link'},
+    {pfx:'hs',   detailId:'hs-details',   regId:'hs-reg-link',   schedId:'hs-sched-link'},
+    {pfx:'ms',   detailId:'ms-details',   regId:'ms-reg-link',   schedId:'ms-sched-link'},
+    {pfx:'iqms', detailId:'iqms-details', regId:'iqms-reg-link', schedId:'iqms-sched-link'},
+    {pfx:'iqel', detailId:'iqel-details', regId:'iqel-reg-link', schedId:'iqel-sched-link'},
   ];
-  divs.forEach(({pfx, detailId, regId}) => {
+  divs.forEach(({pfx, detailId, regId, schedId}) => {
     const p = pfx.toUpperCase();
     document.getElementById(`${pfx}-game`).textContent   = cfg[`USOPEN_${p}_GAME`];
     document.getElementById(`${pfx}-grades`).textContent = cfg[`USOPEN_${p}_GRADES`];
@@ -651,6 +655,10 @@ function applyConfig(cfg) {
     const regUrl = cfg[`USOPEN_${p}_REG_URL`];
     if (regUrl) { regEl.href = regUrl; regEl.style.display = ''; }
     else { regEl.style.display = 'none'; }
+    const schedEl = document.getElementById(schedId);
+    const schedUrl = cfg[`USOPEN_${p}_SCHEDULE_URL`];
+    if (schedUrl) { schedEl.href = schedUrl; schedEl.style.display = ''; }
+    else { schedEl.style.display = 'none'; }
   });
 
   // Documents
