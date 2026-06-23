@@ -79,8 +79,11 @@ section{position:relative;width:100%;overflow:hidden;}
 .division-card.open .div-expand{max-height:400px;}
 .div-expand-inner{border-top:1px solid #222;margin-top:12px;padding-top:16px;display:flex;flex-direction:column;gap:12px;}
 .div-details-text{font-size:13px;font-weight:300;color:rgba(255,255,255,.52);line-height:1.7;}
+.div-btn-row{display:flex;gap:10px;flex-wrap:wrap;}
 .div-reg-btn{display:inline-block;background:var(--red);color:#fff;border-radius:30px;padding:10px 24px;font-size:13px;font-weight:500;text-decoration:none;text-align:center;transition:opacity .15s;}
 .div-reg-btn:hover{opacity:.88;}
+.div-sched-btn{display:inline-block;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:10px 24px;font-size:13px;font-weight:500;text-decoration:none;text-align:center;transition:opacity .15s;}
+.div-sched-btn:hover{opacity:.85;}
 
 /* DOCUMENTS */
 .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1000px;margin:0 auto;}
@@ -115,6 +118,41 @@ section{position:relative;width:100%;overflow:hidden;}
 .contact-item{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.65);}
 .contact-item a{color:#fff;text-decoration:none;}
 .contact-item a:hover{color:var(--red);}
+
+/* HOTELS */
+.hotel-primary{max-width:1000px;margin:0 auto 20px;background:#111;border:1px solid #333;border-radius:20px;padding:36px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+.hotel-primary-badge{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--red);background:rgba(227,25,55,.12);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+.hotel-primary h3{font-size:20px;font-weight:600;margin-bottom:6px;}
+.hotel-primary-addr{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:4px;}
+.hotel-primary-note{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;}
+.hotel-primary-actions{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+.btn-sm{display:inline-block;padding:10px 22px;border-radius:30px;font-size:13px;font-weight:500;text-decoration:none;transition:opacity .15s;white-space:nowrap;}
+.btn-sm-primary{background:var(--red);color:#fff;}
+.btn-sm-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);}
+.btn-sm:hover{opacity:.85;}
+.hotels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;max-width:1000px;margin:0 auto;}
+.hotel-card{background:#0d0d0d;border:1px solid #1e1e1e;border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:6px;}
+.hotel-card h4{font-size:14px;font-weight:500;}
+.hotel-card p{font-size:12px;color:rgba(255,255,255,.38);line-height:1.5;}
+.hotel-card a{font-size:12px;color:var(--red);text-decoration:none;margin-top:4px;}
+.hotel-card a:hover{text-decoration:underline;}
+
+/* ATTRACTIONS */
+.attractions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;max-width:1000px;margin:0 auto;}
+.attraction-card{background:#111;border:1px solid #222;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;}
+.attraction-icon{font-size:24px;width:48px;height:48px;background:rgba(255,255,255,.05);border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.attraction-card h4{font-size:15px;font-weight:500;}
+.attraction-card p{font-size:13px;font-weight:300;color:rgba(255,255,255,.48);line-height:1.65;flex:1;}
+.attraction-card a{font-size:12px;color:var(--red);text-decoration:none;align-self:flex-start;}
+.attraction-card a:hover{text-decoration:underline;}
+
+/* PAST YEARS */
+.history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;max-width:1000px;margin:0 auto;}
+.history-card{background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:18px 12px;text-align:center;text-decoration:none;color:#fff;transition:border-color .2s,background .2s;display:flex;flex-direction:column;gap:4px;}
+.history-card:hover{background:#1a1a1a;border-color:#383838;}
+.history-year{font-size:18px;font-weight:600;color:#fff;}
+.history-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.history-card.no-link{opacity:.4;cursor:default;pointer-events:none;}
 
 /* VENUE */
 .venue-split{display:grid;grid-template-columns:1fr 1fr;max-width:1000px;margin:0 auto;background:#111;border:1px solid #222;border-radius:20px;overflow:hidden;}
@@ -226,7 +264,10 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
       <div class="div-expand">
         <div class="div-expand-inner">
           <p class="div-details-text" id="hs-details">Game-based head-to-head robotics challenge for high school students. Teams design, build, and program robots to compete in the "Push Back" game. Registration fee covers the full multi-day event including all matches and awards ceremony.</p>
-          <a id="hs-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+          <div class="div-btn-row">
+            <a id="hs-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+            <a href="https://create-found.org/documents/12026USOHS-VRCScheduleofEvents_002.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -251,7 +292,10 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
       <div class="div-expand">
         <div class="div-expand-inner">
           <p class="div-details-text" id="ms-details">Middle school teams compete in the same "Push Back" game as high school in a division tailored for grades 6–9. Builds foundational STEM skills through hands-on competitive robotics.</p>
-          <a id="ms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+          <div class="div-btn-row">
+            <a id="ms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+            <a href="https://create-found.org/documents/22026USOMS-VRCScheduleofEvents_002.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -276,7 +320,10 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
       <div class="div-expand">
         <div class="div-expand-inner">
           <p class="div-details-text" id="iqms-details">An introductory robotics program focused on cooperative play and teamwork. The "Mix and Match" game emphasizes collaboration and creative problem solving for middle school students.</p>
-          <a id="iqms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+          <div class="div-btn-row">
+            <a id="iqms-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+            <a href="https://create-found.org/documents/42026VEXIQMiddleSchool-USOSchedule_001.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -301,7 +348,10 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
       <div class="div-expand">
         <div class="div-expand-inner">
           <p class="div-details-text" id="iqel-details">The perfect on-ramp to competitive robotics for elementary students. Teams work together in the "Mix and Match" game, building teamwork and a love of engineering from an early age.</p>
-          <a id="iqel-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+          <div class="div-btn-row">
+            <a id="iqel-reg-link" href="#" class="div-reg-btn" onclick="event.stopPropagation()">Register →</a>
+            <a href="https://create-found.org/documents/52026VEXIQElementarySchool-USOSchedule_002.pdf" target="_blank" class="div-sched-btn" onclick="event.stopPropagation()">View Schedule →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -337,18 +387,109 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
 </section>
 
 <!-- HOTEL -->
-<section class="sec-pad" style="background:#0a0a0a;">
+<section id="hotels" class="sec-pad" style="background:#0a0a0a;">
   <p class="section-eyebrow">Accommodations</p>
-  <h2 class="section-title">Hotel &amp; Robot Shipping</h2>
-  <div class="info-box">
-    <h3>Host Hotels</h3>
-    <p id="hotel-desc">CREATE partners with host hotels in the Council Bluffs / Omaha area that offer robot shipping options, making it easy for out-of-town teams to attend without the hassle of transporting robots on a plane.</p>
-    <p>For reservations and a full list of host hotels, contact us at <a id="hotel-email-link" href="mailto:Support@Create-Found.org">Support@Create-Found.org</a> or call <a id="hotel-phone-link" href="tel:+14026142210">(402) 614-2210</a>.</p>
-    <div class="contact-row">
-      <div class="contact-item">✉️ <a id="contact-email" href="mailto:Support@Create-Found.org">Support@Create-Found.org</a></div>
-      <div class="contact-item">📞 <a id="contact-phone" href="tel:+14026142210">(402) 614-2210</a></div>
+  <h2 class="section-title">Where to Stay</h2>
+
+  <!-- Primary hotel -->
+  <div class="hotel-primary">
+    <div>
+      <span class="hotel-primary-badge">Closest Hotel — Shared Parking</span>
+      <h3>Courtyard by Marriott Omaha East / Council Bluffs</h3>
+      <p class="hotel-primary-addr">📍 2501 Bass Pro Drive, Council Bluffs, IA 51501</p>
+      <p class="hotel-primary-note">Steps from the Iowa West Field House — same parking lot. 130 rooms, indoor pool, fitness center. Robot shipping available — contact us to coordinate.</p>
+    </div>
+    <div class="hotel-primary-actions">
+      <a href="https://www.marriott.com/en-us/hotels/omauf-courtyard-omaha-east-council-bluffs-ia/overview/" target="_blank" class="btn-sm btn-sm-primary">Book Now →</a>
+      <a href="mailto:Support@Create-Found.org" class="btn-sm btn-sm-ghost">Robot Shipping Info</a>
     </div>
   </div>
+
+  <!-- Other hotels -->
+  <div class="hotels-grid">
+    <div class="hotel-card">
+      <h4>Hilton Garden Inn Omaha East</h4>
+      <p>Council Bluffs · 5 min to venue</p>
+      <a href="https://www.hilton.com/en/hotels/omahagi-hilton-garden-inn-omaha-east-council-bluffs/" target="_blank">View Hotel →</a>
+    </div>
+    <div class="hotel-card">
+      <h4>Hampton Inn Council Bluffs</h4>
+      <p>Council Bluffs · 8 min to venue</p>
+      <a href="https://www.hilton.com/en/hotels/cbiahhx-hampton-council-bluffs/" target="_blank">View Hotel →</a>
+    </div>
+    <div class="hotel-card">
+      <h4>Holiday Inn &amp; Suites Council Bluffs</h4>
+      <p>Council Bluffs · 10 min to venue</p>
+      <a href="https://www.ihg.com/holidayinn/hotels/us/en/council-bluffs/cblia/hoteldetail" target="_blank">View Hotel →</a>
+    </div>
+    <div class="hotel-card">
+      <h4>Country Inn &amp; Suites by Radisson</h4>
+      <p>Council Bluffs · 10 min to venue</p>
+      <a href="https://www.radissonhotels.com/en-us/hotels/country-inn-council-bluffs" target="_blank">View Hotel →</a>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:20px auto 0;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:14px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;">Need help coordinating robot shipping or have questions about accommodations?</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div class="contact-item">✉️ <a id="contact-email" href="mailto:Support@Create-Found.org" style="color:#fff;text-decoration:none;">Support@Create-Found.org</a></div>
+      <div class="contact-item">📞 <a id="contact-phone" href="tel:+14026142210" style="color:#fff;text-decoration:none;">(402) 614-2210</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS -->
+<section id="attractions" class="sec-pad" style="background:#080808;">
+  <p class="section-eyebrow">Explore the Area</p>
+  <h2 class="section-title">Sights &amp; Attractions</h2>
+  <div class="attractions-grid">
+    <div class="attraction-card">
+      <div class="attraction-icon">🦁</div>
+      <h4>Henry Doorly Zoo &amp; Aquarium</h4>
+      <p>One of the top zoos in the world — 160 acres with the Desert Dome, Kingdoms of the Night, and African Grasslands. A must for families.</p>
+      <a href="https://www.omahazoo.com" target="_blank">omahazoo.com →</a>
+    </div>
+    <div class="attraction-card">
+      <div class="attraction-icon">🌉</div>
+      <h4>Bob Kerrey Pedestrian Bridge</h4>
+      <p>A stunning 3,000-foot cable-stayed bridge connecting Council Bluffs and Omaha over the Missouri River. Great views and easy walk from downtown.</p>
+      <a href="https://www.unleashcb.com" target="_blank">unleashcb.com →</a>
+    </div>
+    <div class="attraction-card">
+      <div class="attraction-icon">🛍</div>
+      <h4>The Old Market — Omaha</h4>
+      <p>Historic cobblestone district packed with restaurants, boutiques, and galleries. Lively year-round with street musicians and local art.</p>
+      <a href="https://oldmarket.com" target="_blank">oldmarket.com →</a>
+    </div>
+    <div class="attraction-card">
+      <div class="attraction-icon">🚂</div>
+      <h4>Union Pacific Railroad Museum</h4>
+      <p>Free museum in historic downtown Council Bluffs tracing the history of the transcontinental railroad with hands-on exhibits.</p>
+      <a href="https://www.up.com/heritage/museum/" target="_blank">up.com/heritage →</a>
+    </div>
+    <div class="attraction-card">
+      <div class="attraction-icon">🌊</div>
+      <h4>Lake Manawa State Park</h4>
+      <p>1,500-acre park centered on a natural lake — hiking, fishing, swimming, and camping just minutes from the venue.</p>
+      <a href="https://www.iowadnr.gov/Places-to-Go/State-Parks/Iowa-State-Parks/parkdetails/Lake-Manawa-State-Park/6" target="_blank">Iowa DNR →</a>
+    </div>
+    <div class="attraction-card">
+      <div class="attraction-icon">🎡</div>
+      <h4>Tom Hanafan River's Edge Park</h4>
+      <p>Beautiful riverside park with skyline views of Omaha, concert events, and outdoor screenings. Perfect for an evening out.</p>
+      <a href="https://www.unleashcb.com" target="_blank">unleashcb.com →</a>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <a href="https://www.unleashcb.com" target="_blank" class="btn btn-ghost" style="border-radius:30px;">More at Unleash Council Bluffs →</a>
+  </div>
+</section>
+
+<!-- PAST YEARS -->
+<section id="history" class="sec-pad" style="background:#0a0a0a;">
+  <p class="section-eyebrow">Tournament History</p>
+  <h2 class="section-title">Past U.S. Opens</h2>
+  <div class="history-grid" id="history-grid"></div>
 </section>
 
 <!-- VOLUNTEERS -->
@@ -590,7 +731,21 @@ async function fetchConfig(url) {
   } catch(e) {
     // silently use defaults
   }
+  buildHistory();
 })();
+
+function buildHistory() {
+  const grid = document.getElementById('history-grid');
+  if (!grid) return;
+  const years = [];
+  for (let y = 2025; y >= 2009; y--) years.push(y);
+  grid.innerHTML = years.map(y => `
+    <div class="history-card">
+      <span class="history-year">${y}</span>
+      <span class="history-label">U.S. Open</span>
+      <span class="history-coming">Coming soon</span>
+    </div>`).join('');
+}
 
 // Division expand/collapse
 function toggleDiv(card) {
