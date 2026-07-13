@@ -135,7 +135,7 @@ section{position:relative;width:100%;overflow:hidden;}
 .img-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.6));}
 .img-banner-text{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;}
 .img-banner-text h2{font-size:clamp(28px,5vw,56px);font-weight:600;letter-spacing:-0.5px;line-height:1.1;margin-bottom:14px;}
-.img-banner-text p{font-size:17px;font-weight:300;color:rgba(255,255,255,.75);max-width:540px;line-height:1.6;}
+.img-banner-text p{font-size:17px;font-weight:300;color:rgba(255,255,255,.75);max-width:540px;line-height:1.6;margin-bottom:28px;}
 
 /* DONATE */
 #donate{min-height:100svh;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 40px;position:relative;}
@@ -267,6 +267,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
     <li><a href="#announcements">News</a></li>
     <li><a href="#mission">Mission</a></li>
     <li><a href="#programs">Programs</a></li>
+    <li><a href="usopen.html">U.S. Open</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#volunteers">Volunteer</a></li>
     <li><a href="#resources">Resources</a></li>
@@ -282,6 +283,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
   <a href="#announcements" class="mm-link">News</a>
   <a href="#mission" class="mm-link">Mission</a>
   <a href="#programs" class="mm-link">Programs</a>
+  <a href="usopen.html" class="mm-link">U.S. Open</a>
   <a href="#about" class="mm-link">About</a>
   <a href="#volunteers" class="mm-link">Volunteer</a>
   <a href="#resources" class="mm-link">Resources</a>
@@ -363,6 +365,7 @@ footer{background:#000;border-top:1px solid #191919;padding:40px 40px 36px;displ
   <div class="img-banner-text">
     <h2 id="banner-title">The U.S. Open Robotics Championship</h2>
     <p id="banner-sub">Our signature annual event — celebrating the accomplishments of teams from across the country.</p>
+    <a href="usopen.html" class="btn btn-primary" style="border-radius:30px;">View the <span id="banner-year">2026</span> U.S. Open →</a>
   </div>
 </div>
 
@@ -510,6 +513,7 @@ function applyConfig(cfg) {
   document.getElementById('footer-year').textContent = cfg.SEASON_YEAR;
   document.getElementById('banner-title').textContent = cfg.BANNER_TITLE;
   document.getElementById('banner-sub').textContent   = cfg.BANNER_SUBTITLE;
+  document.getElementById('banner-year').textContent  = cfg.SEASON_YEAR;
 
   // Announcements
   const grid = document.getElementById('ann-grid');
